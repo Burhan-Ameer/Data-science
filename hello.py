@@ -8,7 +8,7 @@ import pandas as pd
 #     "name":["bruhan ","hiroshi","satoshi namanto"],"marks":[12,14,43]})
 # print(df)
 # reading files 
-df =pd.read_csv("Walmart Data Analysis and Forcasting.csv")
+# df =pd.read_csv("Walmart Data Analysis and Forcasting.csv")
 # print(df)
 # if  i want to read the first 5 elements we could use 
 # head function
@@ -41,7 +41,7 @@ df =pd.read_csv("Walmart Data Analysis and Forcasting.csv")
 #  7   Unemployment  6435 non-null   float64
 # df["Store"]
 #  inorder to select one item from the csv file we could use ["followd by the name of column"]
-print(df["Store"])
+# print(df["Store"])
 # # 0        1
 # 1        1
 # 2        1
@@ -54,6 +54,26 @@ print(df["Store"])
 # 6433    45
 # 6434    45 
 #  In order to calculate the the type of the specific column in our case   store attribute is the one in which we want to find the value 
-print(type(df["Store"]))
+# print(type(df["Store"]))
 # Expected output of this statement
 # <class 'pandas.core.series.Series'>
+# print(df[["Store","Date"]])
+#  ILOC it is a function used to print out the specific row of the file  for example 
+# print(df.iloc[23])
+#  this will give us the 23rd rows data  from all the column names 
+# Store                    1
+# Date            16-07-2010
+# Weekly_Sales    1448938.92
+# Holiday_Flag             0
+# Temperature          83.15
+# Fuel_Price           2.623
+# CPI             211.100385
+# Unemployment         7.787
+# Name: 23, dtype: object
+df2=pd.read_csv("data.csv")
+print(df2)
+#  now in order to clean those nan fields what we can  do here is that  we can use a function called 
+# dropna means drop not available
+print(df2.dropna())
+#  you can also fill out the nan fields with your desired number so instead of deleting the rows you fill it out with numbers you like 
+print(df2.fillna(2))
