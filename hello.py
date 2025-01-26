@@ -70,11 +70,11 @@ import pandas as pd
 # CPI             211.100385
 # Unemployment         7.787
 # Name: 23, dtype: object
-df2=pd.read_csv("data.csv")
+# df2=pd.read_csv("data.csv")
 # print(df2)
 # #  now in order to clean those nan fields what we can  do here is that  we can use a function called 
 # # dropna means drop not available
-print(df2.dropna())
+# print(df2.dropna())
 # #  you can also fill out the nan fields with your desired number so instead of deleting the rows you fill it out with numbers you like 
 # print(df2.fillna(2))
 # #  if you want to change the name of the column for example
@@ -85,9 +85,30 @@ print(df2.dropna())
 # this thing make the changes inside\ the file  so every time you wite something with inplace =true it makes it reflected on the actaul file 
 # now if we check  the type of data we are storing we could get some thing like string object int64 and float64
 # but if you want to change the type iod the column for example in  case of dukaan 
-df2.dropna(inplace=True)
-print(df2)
+# df2.dropna(inplace=True)
+# print(df2)
 
-df2["Store"] = df2["Store"].astype("int64")
-print(df2.info())
-# now if you want to calculate the length of the dataframe you can use len() or should  i say length function 
+# df2["Store"] = df2["Store"].astype("int64")
+# print(df2.info())
+# # now if you want to calculate the length of the dataframe you can use len() or should  i say length function 
+# print(len(df2))
+# # so there are 6424 number of rows inside the file data.csv 
+# #  Now inorder to add the a new field inside the file what we can  do here is that we will add a column named as employees_salery 
+# df2["emp_salary"]=[ 0 for i in range(len(df2))]
+# print(df2)
+# #  A new column emp_salary will be added with the values being all zeros
+# # suppose you want to create a new column that has values being the squre of fuel_price you can do that by defining a function named multiply
+# def multiply(a):
+#     return a*a
+# df2["Highest__fuel_price"]=df2["Fuel_Price"].apply(multiply)
+# print(df2)
+# df2.to_csv("export.csv",index=False)
+# merge function in pandas  also concat function
+df3=pd.DataFrame({"name":["burhan ameer","harry bhai","hanzla","shinchan"],"marks":[100,100,23,100 ]})
+df4=pd.DataFrame({"name":["hiroshi nohara","burhan ameer","doraemon",],"roll":[12,21,43]})
+# print(pd.concat([df3,df4]))
+#  so what concat function does is it takes the two values and make a table out of it regardless of the fact what values it stores 
+# MERGE FUNCTION
+# In merge function we can have only the similar values inside the resultant table 
+print(pd.merge(df3,df4,on="name"))
+#  as you will see from this code segment this will only gives us the values that are in common between two data frames 
