@@ -71,9 +71,23 @@ import pandas as pd
 # Unemployment         7.787
 # Name: 23, dtype: object
 df2=pd.read_csv("data.csv")
-print(df2)
-#  now in order to clean those nan fields what we can  do here is that  we can use a function called 
-# dropna means drop not available
+# print(df2)
+# #  now in order to clean those nan fields what we can  do here is that  we can use a function called 
+# # dropna means drop not available
 print(df2.dropna())
-#  you can also fill out the nan fields with your desired number so instead of deleting the rows you fill it out with numbers you like 
-print(df2.fillna(2))
+# #  you can also fill out the nan fields with your desired number so instead of deleting the rows you fill it out with numbers you like 
+# print(df2.fillna(2))
+# #  if you want to change the name of the column for example
+# # suppose you want to change the names of stores columns to dukaan 
+# df2.rename(columns={"Store":"dukaan"},inplace=True)
+# print(df2)
+#  but these changes are temporary if we want to make it permenet we could use something called inplace =True
+# this thing make the changes inside\ the file  so every time you wite something with inplace =true it makes it reflected on the actaul file 
+# now if we check  the type of data we are storing we could get some thing like string object int64 and float64
+# but if you want to change the type iod the column for example in  case of dukaan 
+df2.dropna(inplace=True)
+print(df2)
+
+df2["Store"] = df2["Store"].astype("int64")
+print(df2.info())
+# now if you want to calculate the length of the dataframe you can use len() or should  i say length function 
